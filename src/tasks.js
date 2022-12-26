@@ -47,7 +47,6 @@ function Tasks(props) {
             alignItems="center"
             justifyContent="space-between"
             flexGrow={1}
-            
             spacing={2} >
             <SimpleForm handleSubmit={handleSubmit} handleUpdate={handleUpdate} task={{ name: "", title: "" }}></SimpleForm>
             <Box sx={boxTheme} >

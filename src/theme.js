@@ -14,7 +14,11 @@ export const theme = createTheme({
       },
       text: {
         primary:"#ffddc1",
-        secondary: "#000021"
-      }
+        secondary: "#000021",
+        surface:"#e8eaf6",
+        background:"#e8eaf6"
+      },
+      background:"#e8eaf6",
+      
     },
   });

@@ -1,4 +1,4 @@
-import { Typography, Stack, Box, TextField, Button, Avatar } from "@mui/material"
+import { Typography, Stack, Box, TextField, Button, Avatar ,Divider } from "@mui/material"
 import { useState } from "react"
 
 export const Homepage = (props) => {
@@ -62,14 +62,20 @@ export const Homepage = (props) => {
                 alignItems="flex-start"
                 justifyContent="space-between"
                 spacing={2} >
+                    
             <Typography variant="subtitle" fontSize={20} > your bottts </Typography>
+            {/* <Divider variant="string"/> */}
                 {users.map((user) => {
                     const img = 'https://avatars.dicebear.com/api/bottts/'+user.name+'.svg'
-                    return (<Stack key={user.id}
+                    return (
+                        <> 
+                        <Divider sx={{width:'100%', height:'1'}} variant="string" flexItem/>
+                    <Stack key={user.id}
                          direction="row"
                          alignItems="flex-start"
                         // justifyContent="space-between"
                         >
+                        
                         <Avatar src={img}></Avatar>
                         <Stack  direction="column"
                          alignItems="flex-start"
@@ -77,7 +83,7 @@ export const Homepage = (props) => {
                         <Typography variant="subtitle"> {user.name}</Typography>
                         <Typography variant="subtitle"> {user.email}</Typography>
                         </Stack>
-                    </Stack>
+                    </Stack></>
                     )
                 })}
                

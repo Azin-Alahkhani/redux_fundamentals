@@ -10,8 +10,8 @@ function App() {
   return (
     <Stack sx={{textAlign:"center", fontFamily:'lora'}} direction="row" flexGrow={1} >
    {/* <View /> */}
-   <HomepageContainer xs={6} />
-   <TaskContainer xs={6} />
+   <HomepageContainer xs={6} width="50%" />
+   <TaskContainer xs={6} width="50%" />
     </Stack>
   );
 }
