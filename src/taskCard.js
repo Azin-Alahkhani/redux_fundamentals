@@ -6,9 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Input, Stack } from '@mui/material';
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
+import {  Stack } from '@mui/material';
+import Fab from '@mui/material/Fab';
+import RemoveIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';import Modal from '@mui/material/Modal';
 import { SimpleForm } from './simpleForm';
 
 
@@ -33,7 +34,7 @@ export const TaskCard = ({ task, onRemove ,updateTask}) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 400,
-        bgcolor: 'background.paper',
+        bgcolor: 'secondary.dark',
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
@@ -64,20 +65,18 @@ export const TaskCard = ({ task, onRemove ,updateTask}) => {
                         </Typography>
                     </CardContent>
 
-                    <Button variant="outlined" size="small"   margin="5px"
-                        sx={{
+                    <Fab color="primary" aria-label="edit"                        
+                    sx={{
                             color: 'text.primary',
-                            width: "100px",
                             '&:hover': {
                                 backgroundColor: 'primary.main',
                                 opacity: [0.9, 0.8, 0.7],
                             },
                         }}
                         onClick={handleRemove}
-                    >Remove task</Button>
-                    <Button variant="outlined" size="small"  margin="5px"
+                    ><RemoveIcon /></Fab>
+                    <Fab color="primary" aria-label="edit"
                         sx={{
-                            width: "100px",
                             color: 'text.primary',
                             '&:hover': {
                                 backgroundColor: 'primary.main',
@@ -85,7 +84,7 @@ export const TaskCard = ({ task, onRemove ,updateTask}) => {
                             },
                         }}
                         onClick={handleOpen}
-                    >Update task</Button>
+                    > <EditIcon /></Fab>
                     <Modal
                         open={open}
                         onClose={handleClose}

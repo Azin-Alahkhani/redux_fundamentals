@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -22,7 +24,7 @@ export const SimpleForm = ({ handleSubmit,  task, close}) => {
         if(close){
          close()
         }
-    } else setError("please fill the field.")
+    } else setError("please fill the required field.")
     }
 
     
@@ -43,6 +45,7 @@ export const SimpleForm = ({ handleSubmit,  task, close}) => {
                     value={taskTitle}
                     autoComplete="off"
                     required
+                    error={error}
                     onChange={(e) => setTaskTitle(e.target.value)}
 
                 />
@@ -54,6 +57,7 @@ export const SimpleForm = ({ handleSubmit,  task, close}) => {
                     value={taskName}
                     autoComplete="off"
                     required
+                    error={error}
                     onChange={(e) => setTaskName(e.target.value)}
 
                 />
