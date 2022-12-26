@@ -11,21 +11,25 @@ export const SimpleForm = ({ handleSubmit,  task, close}) => {
     const update =!( task.title ==="")
     const [taskTitle, setTaskTitle] = useState(task.title)
     const [taskName, setTaskName] = useState(task.name)
+    const [error,setError]=useState(null)
     const handleSubmitForm = (event) => {
         event.preventDefault()
-        if(update) handleSubmit(taskName, taskTitle,task.id)
+        if(taskName !=="" && taskTitle !=="")
+        {if(update) handleSubmit(taskName, taskTitle,task.id)
         else handleSubmit(taskName, taskTitle)
         setTaskName("")
         setTaskTitle("")
         if(close){
          close()
         }
+    } else setError("please fill the field.")
     }
 
     
     return (
         <Box marginBottom="space80"
-            autoComplete="off">
+            autoComplete="off"
+            >
             <Box marginBottom="space80" component="form"
                 alignItems="center" justifyContent="start"
                 sx={{
@@ -38,6 +42,7 @@ export const SimpleForm = ({ handleSubmit,  task, close}) => {
                     label="Task"
                     value={taskTitle}
                     autoComplete="off"
+                    required
                     onChange={(e) => setTaskTitle(e.target.value)}
 
                 />
@@ -48,6 +53,7 @@ export const SimpleForm = ({ handleSubmit,  task, close}) => {
                     margin="normal"
                     value={taskName}
                     autoComplete="off"
+                    required
                     onChange={(e) => setTaskName(e.target.value)}
 
                 />

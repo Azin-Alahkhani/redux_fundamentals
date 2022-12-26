@@ -13,12 +13,12 @@ import { SimpleForm } from './simpleForm';
 
 function Tasks(props) {
     const recTasks = props.tasks
-  
+
     const [id, setId] = useState(3)
     const boxTheme = {
         // width: 500,
         height: 300,
-        backgroundColor: 'primary.dark',
+        // backgroundColor: 'primary.dark',
         display: "flex", alignItems: "center", justifyContent: "center",
     }
     const cardTheme = {
@@ -30,29 +30,31 @@ function Tasks(props) {
         backgroundColor: 'primary.dark',
 
     }
-    const handleSubmit = (taskName,taskTitle) => {
+    const handleSubmit = (taskName, taskTitle) => {
         console.log(taskName, taskTitle)
-        props.addTask(taskTitle,taskName,  id)
+        props.addTask(taskTitle, taskName, id)
         setId(id + 1)
     }
-    const handleUpdate = (name,title,id) => {
-        console.log(name+" do "+title)
-        props.updateTask(name,title,id)
+    const handleUpdate = (name, title, id) => {
+        console.log(name + " do " + title)
+        props.updateTask(name, title, id)
     }
 
     return (
         <Stack
-            sx={{ backgroundColor: 'primary.dark' }}
+            sx={{ backgroundColor: 'secondary.main'  }}
             direction="column"
             alignItems="center"
             justifyContent="space-between"
+            flexGrow={1}
+            
             spacing={2} >
+            <SimpleForm handleSubmit={handleSubmit} handleUpdate={handleUpdate} task={{ name: "", title: "" }}></SimpleForm>
             <Box sx={boxTheme} >
                 {recTasks.map((item) => {
                     return <TaskCard key={item.id} task={item} onRemove={props.removeTask} updateTask={props.updateTask}></TaskCard>
                 })}
             </Box>
-            <SimpleForm  handleSubmit={handleSubmit} handleUpdate={handleUpdate} task={{name:"",title:""}}></SimpleForm>
         </Stack>
     )
 

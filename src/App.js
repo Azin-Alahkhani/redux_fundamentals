@@ -2,12 +2,17 @@ import logo from './logo.svg';
 import './App.css';
 import { View } from './view';
 import { TaskContainer } from './tasksContainer';
+import { HomePage } from './homepage';
+import { HomepageContainer } from './homepageContainer';
+import { Stack } from '@mui/material';
+import Masonry from '@mui/lab/Masonry';
 function App() {
   return (
-    <div className="App">
+    <Stack sx={{textAlign:"center", fontFamily:'lora'}} direction="row" flexGrow={1} >
    {/* <View /> */}
-   <TaskContainer />
-    </div>
+   <HomepageContainer xs={6} />
+   <TaskContainer xs={6} />
+    </Stack>
   );
 }
 
